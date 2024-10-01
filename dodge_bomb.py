@@ -38,10 +38,9 @@ def game_over_screen(screen: pg.Surface, kk_img: pg.Surface):
     screen.blit(overlay, (0, 0))
     
     # "Game Over" テキストを表示
-    font = pg.font.Font(None, 74)
-    text = font.render("Game Over", True, (255, 255, 255))  
-    text_rect = text.get_rect(center=(WIDTH // 2, HEIGHT // 2))
-    screen.blit(text, text_rect)
+    font = pg.font.Font(None, 80)
+    text = font.render("Game Over", True, (255, 255, 255))
+    screen.blit(text, [WIDTH // 2, HEIGHT // 2])
 
     # 泣いているこうかとんの画像を表示
     kk_img = pg.transform.rotozoom(pg.image.load("fig/8.png"), 0, 0.9)
@@ -62,6 +61,7 @@ def check_bound(obj_rct: pg.Rect) -> tuple[bool, bool]:
     if obj_rct.top < 0 or obj_rct.bottom > HEIGHT:
         tate = False
     return yoko, tate
+
 
 def main():
     # ゲームのウィンドウのタイトルを設定
