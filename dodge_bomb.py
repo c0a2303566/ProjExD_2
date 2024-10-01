@@ -16,6 +16,15 @@ DELTA = {
     pg.K_RIGHT: (5, 0)   
 }
 
+#加速度リスト
+
+accs=[a for a in range(1, 11)] #1から10までの加速度リスト
+bb_imgs = [pg.Surface((20 * r, 20 * r), pg.SRCALPHA) for r in range(1, 11)]  # 爆弾のSurfaceを生成
+for r in range(1, 11):
+    pg.draw.circle(bb_imgs[r-1], (255, 0, 0), (10 * r, 10 * r), 10 * r)  # 各爆弾を赤い円で描画
+
+
+
 def game_over_screen(screen: pg.Surface, kk_img: pg.Surface):
     """
     ゲームオーバー画面
